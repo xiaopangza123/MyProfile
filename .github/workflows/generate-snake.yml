@@ -15,7 +15,7 @@ jobs:
       - name: generate github-contribution-grid-snake.svg
         uses: Platane/snk@v3
         with:
-          github_user_name: ${GITHUB_REPOSITORY_OWNER}
+          github_user_name: xiaopangza123
           outputs: dist
 
       - name: push github-contribution-grid-snake.svg to the output branch

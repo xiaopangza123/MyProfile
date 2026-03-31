@@ -1,11 +1,9 @@
 name: generate-snake
-
 on:
-  # run automatically every 2 hours
   schedule:
-    - cron: "0 */12 * * *" 
+    - cron: "0 */12 * * *"
   
-  workflow_dispatch: # 允许手动触发
+  workflow_dispatch: 
   
 jobs:
   generate:
@@ -18,7 +16,7 @@ jobs:
       - name: generate github-contribution-grid-snake.svg
         uses: Platane/snk@v3
         with:
-          github_user_name: ${{ github.repository_owner }} # 自动获取用户名
+          github_user_name: ${{github.repository_owner}} # 自动获取用户名
           outputs: | #生成的svg文件的路径
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
@@ -33,4 +31,4 @@ jobs:
           target_branch: output #生成的svg文件的分支
           build_dir: dist #生成的svg文件的路径
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} #自己创建的 Personal Access Token (PAT)并添加到GitHub Secrets
+          GITHUB_TOKEN: ${{secrets.GH_TOKEN}} #自己创建的 Personal Access Token (PAT)并添加到GitHub Secrets
